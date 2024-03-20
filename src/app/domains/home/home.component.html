@@ -1,7 +1,36 @@
 <div class="container text-center mt-5">
     <div class="row">
         <div class="col-8">
-            <h1>Welcome!</h1>
+            
+            <div class="row mt-5">
+
+                <div id="carouselExample" class="carousel slide"
+                
+                >
+                    <div class="carousel-inner">
+                        @for (image of carrouselImg; track image) {
+                            <div class="carousel-item"
+                            [class.active]="$index == 1"
+                            style="max-height: 40rem;"
+                            >
+                              <img src="{{image}}" class="d-block w-100 object-fit-contain" 
+                              alt="...">
+
+                            </div>
+                        }
+
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+                      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                      <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+                      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                      <span class="visually-hidden">Next</span>
+                    </button>
+                  </div>
+            </div>
+
         </div>
         <div class="col-4 h-100">
             @if ( isVisibleLoginForm() ) {

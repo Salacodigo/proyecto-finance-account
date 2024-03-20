@@ -26,6 +26,15 @@ export default class HomeComponent {
   isVisibleLoginForm = this.authenticationService.isVisibleLoginForm;
 
 
+  carrouselImg = [
+    'https://i.ytimg.com/vi/UM5zb0W9ig4/maxresdefault.jpg',
+    'https://www.valoraanalitik.com/wp-content/uploads/2021/04/Bancolombia1.jpg',
+    'https://upload.wikimedia.org/wikipedia/commons/7/74/Edificio_Bancolombia_-_luces.jpg',
+
+
+  ]
+
+
 
 
 
