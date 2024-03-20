@@ -2,6 +2,8 @@ import { Routes } from '@angular/router';
 import { LayoutComponent } from './domains/shared/components/layout/layout.component';
 
 
+
+
 export const routes: Routes = [
     {
         path: '',
@@ -30,10 +32,6 @@ export const routes: Routes = [
             {
                 path: 'signup',
                 loadComponent: () => import('./domains/authentication/components/sign-up/sign-up.component')
-            },
-            {
-                path: 'accounts',
-                loadComponent: () => import('./domains/accounts/accounts.component')
             },
         ]
     },
