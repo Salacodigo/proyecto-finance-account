@@ -10,8 +10,18 @@ export class TransactionService {
   private http = inject( HttpClient )
   transactions = signal<Transaction[]>([])
   balanceValue = signal<number>(0);
+  accountNumber = signal<string>('');
+
+  
 
   constructor() { }
+
+  onInit(){
+    this.getTransactions()
+    this.getBalance()
+    this.getAccountNumber()
+
+  }
 
   getTransactions(){
     const url = 'http://localhost:3000/transactions';
@@ -24,7 +34,7 @@ export class TransactionService {
       error: () => {}
     });
 
-    this.getBalance()
+    
   }
 
   getBalance(){
@@ -33,6 +43,16 @@ export class TransactionService {
       this.balanceValue.set(value)
     }
     
+  }
+
+  getAccountNumber(){
+    this.transactions().forEach(
+      (transaction) => {
+        if( transaction.type == 'Withdrawal' && this.accountNumber() == ''){
+          this.accountNumber.set(transaction.source)
+        }
+      }
+    )
   }
   
 

@@ -28,7 +28,7 @@ export default class TransactionListComponent {
   }
   
   getTransactions(){
-    this.transactionService.getTransactions()
+    this.transactionService.onInit()
   }
 
 }
