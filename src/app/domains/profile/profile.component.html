@@ -6,36 +6,30 @@
         </div>
         <div class="col-8">
             <h2>Profile</h2>
-            <div class="container text-start mt-5 p-3 border ">
-                <div class="row">
-            
-                
+            <div class="container text-start mt-1 p-3 border ">
+                <div class="row">    
                     <div class="col align-self-center">
-            
-                    
-                        <div class="mb-3">
-                            <label for="exampleFormControlInput1" class="form-label">First Name</label>
-                            <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Cherry"
-                            disabled readonly>
-                        </div>
-                        <div class="mb-3">
-                            <label for="exampleFormControlInput2" class="form-label">Last Name</label>
-                            <input type="text" class="form-control" id="exampleFormControlInput2" placeholder="Pick"
-                            disabled readonly>
+                        <div class="row">
+                            <div class="col mb-3">
+                                <label for="exampleFormControlInput1" class="form-label">First Name</label>
+                                <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="{{ profileInfo().firstName }}"
+                                disabled readonly>
+                            </div>
+                            <div class="col mb-3">
+                                <label for="exampleFormControlInput2" class="form-label">Last Name</label>
+                                <input type="text" class="form-control" id="exampleFormControlInput2" placeholder="{{ profileInfo().lastName }}"
+                                disabled readonly>
+                            </div>
+
                         </div>
                         <div class="mb-3">
                             <label for="exampleFormControlInput3" class="form-label">Username</label>
-                            <input type="text" class="form-control" id="exampleFormControlInput3" placeholder="Pick"
-                            disabled readonly>
-                        </div>
-                        <div class="mb-3">
-                            <label for="exampleFormControlInput4" class="form-label">Birthday</label>
-                            <input type="date" class="form-control" id="exampleFormControlInput4" placeholder="name@example.com"
+                            <input type="text" class="form-control" id="exampleFormControlInput3" placeholder="{{ profileInfo().username }}"
                             disabled readonly>
                         </div>
                         <div class="mb-3">
                             <label for="exampleFormControlInput4" class="form-label">Email address</label>
-                            <input type="email" class="form-control" id="exampleFormControlInput4" placeholder="name@example.com"
+                            <input type="email" class="form-control" id="exampleFormControlInput4" placeholder="{{ profileInfo().email }}"
                             disabled readonly>
                         </div>
 
