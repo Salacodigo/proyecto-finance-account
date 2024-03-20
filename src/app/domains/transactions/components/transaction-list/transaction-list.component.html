@@ -1,7 +1,24 @@
 <div class="container text-center mt-5">
-    <div class="row ">
+    <div class="row">
         <div class="col-8">
-            <h1>Transactions!</h1>
+            <h2>Transaction movements</h2>
+            <div class="container pt-2 mb-5  overflow-y-scroll">
+                
+                <ul class="list-group list-group-flush">
+                    @if (transactions().length < 1 ) {
+                        <li class="list-group-item">Cargando Transacciones...</li>
+                    }
+                    
+                    @for (transaction of transactions(); track transaction){
+                        <li class="list-group-item">
+                            <app-transaction
+                            [transaction]="transaction"
+                            ></app-transaction>
+                        </li>
+                    }
+                    
+                </ul>
+            </div>
         </div>
         <div class="col-4">
             <app-account></app-account>
