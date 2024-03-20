@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import AccountComponent from '../accounts/accounts.component';
+import { TransactionService } from '../shared/services/transaction.service';
 
 @Component({
   selector: 'app-profile',
@@ -11,5 +12,6 @@ import AccountComponent from '../accounts/accounts.component';
   styleUrl: './profile.component.css'
 })
 export default class ProfileComponent {
+  
 
 }
