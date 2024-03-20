@@ -12,7 +12,8 @@ import { FooterComponent } from '../footer/footer.component';
   imports: [
     RouterModule,
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
+    
   ],
   templateUrl: './layout.component.html',
   styleUrl: './layout.component.css'
