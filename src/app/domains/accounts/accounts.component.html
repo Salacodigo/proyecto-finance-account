@@ -17,11 +17,42 @@
               <p><strong>{{ (balanceValue()).toFixed(3) | currency:'$':'symbol':'1.0' }}</strong></p>
             </div>
         </div>
-
-        
-
       </div>
-      
+    </div>
+
+    <div class="row">
+      <div class="accordion accordion-flush text-start" id="accordionFlushExample">
+        <div class="accordion-item">
+          <h2 class="accordion-header">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+              Statement Date
+            </button>
+          </h2>
+          <div id="flush-collapseOne" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
+            <div class="accordion-body">Marks the end of a billing period in which the account statement will be generated.</div>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <h2 class="accordion-header">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
+              Fees and charges
+            </button>
+          </h2>
+          <div id="flush-collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
+            <div class="accordion-body">It's important to be aware of any fees or charges associated with the account, such as monthly maintenance fees, excessive withdrawal fees, etc.</div>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <h2 class="accordion-header">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
+              Contact information
+            </button>
+          </h2>
+          <div id="flush-collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
+            <div class="accordion-body">Keeping contact information associated with the account updated, such as email address, phone number, etc., allows the bank to easily communicate with the account holder when necessary.</div>
+          </div>
+        </div>
+      </div>
     </div>
     
 </div>

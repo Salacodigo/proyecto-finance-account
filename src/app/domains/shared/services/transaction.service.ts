@@ -16,10 +16,10 @@ export class TransactionService {
 
   constructor() { }
 
-  onInit(){
-    this.getTransactions()
-    this.getBalance()
-    this.getAccountNumber()
+  async onInit(){
+    await this.getTransactions()
+    await this.getBalance()
+    await this.getAccountNumber()
 
   }
 
@@ -38,6 +38,7 @@ export class TransactionService {
   }
 
   getBalance(){
+    if( this.transactions().length <= 0 ){ return }
     const value = this.transactions()[0].balance
     if(value){
       this.balanceValue.set(value)
