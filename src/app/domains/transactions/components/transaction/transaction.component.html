@@ -30,7 +30,7 @@
                         <span>{{ transaction.type }}</span>
                     </div>
                     <div class="row">
-                        <span>$:{{ transaction.amount }}</span>
+                        <span>{{ transaction.amount | currency:'$':'symbol':'1.0'}}</span>
                     </div>
                 </div>
             </div>
