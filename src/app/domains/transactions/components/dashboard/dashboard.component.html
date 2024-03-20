@@ -1,7 +1,66 @@
 <div class="container text-center mt-5">
     <div class="row ">
         <div class="col-8">
-            <h1>Dashboard!</h1>
+            <div class="row">
+                <div class="col">
+                    <h4>Transactions</h4>
+
+                    @for (type of transactionsQuantityPerType(); track type) {
+                    <div class="row">
+                        <div class="card mb-3" style="max-width: 18rem;" [class.text-bg-danger]=" type[0]==='withdrawal' "
+                            [class.text-bg-success]=" type[0]==='deposit' ">
+                            <div class="card-header">{{ type[0] | uppercase }}</div>
+                            <div class="card-body">
+                                <h5 class="card-title">{{ type[1] }}</h5>
+                            </div>
+                        </div>
+                    </div>
+                    }
+                </div>  
+                
+                <div class="col">
+                    <h4>Category Spend</h4>
+                    <ul class="list-group list-group-flush text-start"
+                    style="max-height: 18rem; overflow-y:scroll">
+                        @for (category of transactionsAmountPerCategory(); track category) {
+                        <li class="list-group-item">
+
+                            <div>{{ category[0] | uppercase }}</div>
+                            <div>
+                                <strong>{{ category[1] | currency:'$':'symbol':'1.0' }}</strong>
+                            </div>
+                        </li>
+                        }
+                    </ul>
+                </div>
+            </div>
+
+            <div class="row mt-5">
+                <div class="col">
+                    <h4>Favorite accounts</h4>
+                    <ul class="list-group list-group-flush text-start"
+                    style="max-height: 18rem; overflow-y:scroll">
+                        @for (account of transactionsFavoriteAccounts(); track account) {
+                        <li class="list-group-item">
+                            <div class="row">
+                                <div class="col">
+                                    <div>No. {{ account[0] | uppercase }}</div>
+                                    <div>Transfers: {{ account[1]["sentTransfers"]}}</div>
+                                </div>
+                                <div class="col">
+                                    <div>
+                                        <strong>{{ account[1]["amount"] | currency:'$':'symbol':'1.0' }}</strong>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                        </li>
+
+                        }
+                    </ul>
+                </div>
+            </div>
         </div>
         <div class="col-4">
             <app-account></app-account>
