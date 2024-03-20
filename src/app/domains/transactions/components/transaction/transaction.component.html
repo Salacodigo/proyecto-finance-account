@@ -1,0 +1,70 @@
+<div class="card">
+
+    <h5 class="card-header" [class.text-bg-danger]="type() === 'Withdrawal' "
+        [class.text-bg-success]="type() === 'Deposit' ">
+        @if ( transaction.status == 'Success' ) {
+            <span class="position-absolute top-0 start-100 translate-middle  bg-success border border-light rounded-circle">
+                <span class="visually-hidden">Status</span>
+                <span class="badge">
+    
+    
+                    <svg className="w-[24px] h-[24px] text-gray-800 dark:text-white" aria-hidden="true"
+                        xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                        <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2"
+                            d="m8.032 12 1.984 1.984 4.96-4.96m4.55 5.272.893-.893a1.984 1.984 0 0 0 0-2.806l-.893-.893a1.984 1.984 0 0 1-.581-1.403V7.04a1.984 1.984 0 0 0-1.984-1.984h-1.262a1.983 1.983 0 0 1-1.403-.581l-.893-.893a1.984 1.984 0 0 0-2.806 0l-.893.893a1.984 1.984 0 0 1-1.403.581H7.04A1.984 1.984 0 0 0 5.055 7.04v1.262c0 .527-.209 1.031-.581 1.403l-.893.893a1.984 1.984 0 0 0 0 2.806l.893.893c.372.372.581.876.581 1.403v1.262a1.984 1.984 0 0 0 1.984 1.984h1.262c.527 0 1.031.209 1.403.581l.893.893a1.984 1.984 0 0 0 2.806 0l.893-.893a1.985 1.985 0 0 1 1.403-.581h1.262a1.984 1.984 0 0 0 1.984-1.984V15.7c0-.527.209-1.031.581-1.403Z" />
+                    </svg>
+    
+                </span>
+    
+    
+            </span>
+    
+            }
+        <div class="container text-center">
+            <div class="row align-items-center">
+                <div class="col">
+                    <span>{{ transaction.date | date: 'dd/MM/yy HH:mm '}}</span>
+                </div>
+                <div class="col">
+                    <div class="row">
+                        <span>{{ transaction.type }}</span>
+                    </div>
+                    <div class="row">
+                        <span>$:{{ transaction.amount }}</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </h5>
+
+
+
+    <div class="card-body">
+
+        <div class="container text-center">
+            <div class="row">
+                <div class="col">
+                </div>
+                <div class="col">
+                    <strong class="card-title">{{ transaction.category }}</strong>
+                </div>
+                <div class="col">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <p class="card-text">{{ transaction.description }}</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <span><strong>from</strong>: {{ transaction.source }}</span>
+                    <span> - <strong>to</strong>: {{ transaction.destination }}</span>
+                </div>
+                <div class="col">
+                    <span><strong>Balance</strong>:{{ transaction.balance.toFixed(3) | currency:'$':'symbol':'1.0' }}</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
