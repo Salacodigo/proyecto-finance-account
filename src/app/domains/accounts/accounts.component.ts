@@ -13,10 +13,12 @@ import { TransactionService } from '../shared/services/transaction.service';
 })
 export default class AccountComponent {
 
-
   transactionService = inject(TransactionService)
   balanceValue = this.transactionService.balanceValue;
   accountNumber = this.transactionService.accountNumber;
 
+  ngOnInit(){
+    this.transactionService.onInit()
+  }
 
 }
