@@ -1,9 +1,12 @@
 import { Component } from '@angular/core';
+import AccountComponent from '../accounts/accounts.component';
 
 @Component({
   selector: 'app-profile',
   standalone: true,
-  imports: [],
+  imports: [
+    AccountComponent,
+  ],
   templateUrl: './profile.component.html',
   styleUrl: './profile.component.css'
 })
