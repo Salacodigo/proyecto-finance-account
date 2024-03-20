@@ -3,9 +3,13 @@
         <div class="col-8">
             <h1>Welcome!</h1>
         </div>
-        <div class="col-4">
-            <app-login></app-login>
-            <app-sign-up></app-sign-up>
+        <div class="col-4 h-100">
+            @if ( isVisibleLoginForm() ) {
+                <app-login></app-login>
+            } 
+            @else {
+                <app-sign-up></app-sign-up>
+            }
         </div>
     </div>
 </div>

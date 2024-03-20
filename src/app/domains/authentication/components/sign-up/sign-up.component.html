@@ -1,1 +1,58 @@
-<p>sign-up works!</p>
+<!--
+"firstName": "John",
+"lastName": "Smith",
+"username": "john.smith82",
+"email": "john.smith82@gmail.com",
+"password": "1234",
+"age": 35
+
+-->
+
+<div class="container text-start mt-3 p-3 border ">
+    <div class="row">
+
+    
+        <div class="col align-self-center">
+
+        
+            <div class="mb-3">
+                <label for="exampleFormControlInput1" class="form-label">First Name</label>
+                <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Cherry">
+            </div>
+            <div class="mb-3">
+                <label for="exampleFormControlInput2" class="form-label">Last Name</label>
+                <input type="text" class="form-control" id="exampleFormControlInput2" placeholder="Pick">
+            </div>
+            <div class="mb-3">
+                <label for="exampleFormControlInput3" class="form-label">Username</label>
+                <input type="text" class="form-control" id="exampleFormControlInput3" placeholder="Pick">
+            </div>
+            <div class="mb-3">
+                <label for="exampleFormControlInput4" class="form-label">Birthday</label>
+                <input type="date" class="form-control" id="exampleFormControlInput4" placeholder="name@example.com">
+            </div>
+            <div class="mb-3">
+                <label for="exampleFormControlInput4" class="form-label">Email address</label>
+                <input type="email" class="form-control" id="exampleFormControlInput4" placeholder="name@example.com">
+            </div>
+
+            <label for="inputPassword5" class="form-label">Password</label>
+            <input type="password" id="inputPassword5" class="form-control" aria-describedby="passwordHelpBlock">
+            <div id="passwordHelpBlock" class="form-text">
+            Your password must be 8-20 characters long, contain letters and numbers, and must not contain spaces, special characters, or emoji.
+            </div>
+            <label for="inputPassword5" class="form-label">Confirm Password</label>
+            <input type="password" id="inputPassword5" class="form-control" aria-describedby="passwordHelpBlock">
+            <div id="passwordHelpBlock" class="form-text">
+            Your password must be 8-20 characters long, contain letters and numbers, and must not contain spaces, special characters, or emoji.
+            </div>
+            <div class="container mt-2"></div>
+
+
+            <div class="vstack gap-2 col-md-5 mx-auto">
+                <button type="button" class="btn btn-primary">Register</button>
+                <button type="button" class="btn btn-primary" (click)="showLoginForm()">Login</button>
+            </div>
+        </div>  
+    </div>
+</div>

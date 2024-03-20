@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
+import { AuthenticationService } from '../../../shared/services/authentication.service';
 
 @Component({
   selector: 'app-sign-up',
@@ -8,5 +9,12 @@ import { Component } from '@angular/core';
   styleUrl: './sign-up.component.css'
 })
 export default class SignUpComponent {
+
+
+  authenticationService = inject(AuthenticationService)
+
+  showLoginForm(){
+    this.authenticationService.showLoginForm();
+  }
 
 }
