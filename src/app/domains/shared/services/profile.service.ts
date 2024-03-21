@@ -15,10 +15,11 @@ export class ProfileService {
     email:     '',
     password:  '',
     age:       0,
-}
+  }
 
 
   private http = inject( HttpClient );
+  API_url = 'http://localhost:3000';
   profile = signal< Profile >( this.profileDefault );
 
   constructor() {
@@ -26,7 +27,8 @@ export class ProfileService {
   }
 
   async getProfileInformation(){
-    const url = 'http://localhost:3000/profile';
+    const url = `${this.API_url}/profile`;
+    // const url = 'http://localhost:3000/profile';
     this.http.get<Profile>(url)
     .subscribe({
       next:
