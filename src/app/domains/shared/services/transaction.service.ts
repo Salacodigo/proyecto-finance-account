@@ -10,7 +10,7 @@ export class TransactionService {
   private http = inject( HttpClient )
   API_url = 'http://localhost:3000';
   transactions = signal<Transaction[]>([])
-  balanceValue = signal<number>(0);
+  balanceValue = signal<number>(-0.01);
   accountNumber = signal<string>('');
 
   

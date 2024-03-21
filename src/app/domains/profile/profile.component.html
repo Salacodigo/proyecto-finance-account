@@ -6,42 +6,78 @@
         </div>
         <div class="col-8">
             <h2>Profile</h2>
-            <div class="container text-start mt-1 p-3 border ">
-                <div class="row">    
-                    <div class="col align-self-center">
-                        <div class="row">
-                            <div class="col mb-3">
-                                <label for="exampleFormControlInput1" class="form-label">First Name</label>
-                                <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="{{ profileInfo().firstName }}"
-                                disabled readonly>
+            @if ( profileInfo().firstName == '' ) {
+                <div class="container text-start mt-1 p-3 border ">
+                    <div class="row">    
+                        <div class="col align-self-center placeholder-glow">
+                            <div class="row ">
+                                <div class="col mb-3 ">
+                                    <label for="exampleFormControlInput1" class="form-label placeholder">First Name</label>
+                                    <input type="text" class="form-control placeholder" id="exampleFormControlInput1" placeholder="{{ profileInfo().firstName }}"
+                                    disabled readonly>
+                                </div>
+                                <div class="col mb-3">
+                                    <label for="exampleFormControlInput2" class="form-label placeholder">Last Name</label>
+                                    <input type="text" class="form-control placeholder" id="exampleFormControlInput2" placeholder="{{ profileInfo().lastName }}"
+                                    disabled readonly>
+                                </div>
                             </div>
-                            <div class="col mb-3">
-                                <label for="exampleFormControlInput2" class="form-label">Last Name</label>
-                                <input type="text" class="form-control" id="exampleFormControlInput2" placeholder="{{ profileInfo().lastName }}"
-                                disabled readonly>
+                            <div class="row">
+                                <div class="col-4 mb-3">
+                                    <label for="exampleFormControlInput3" class="form-label placeholder">Username</label>
+                                    <input type="text" class="form-control placeholder" id="exampleFormControlInput3" placeholder="{{ profileInfo().username }}"
+                                    disabled readonly>
+                                </div>
+                                <div class="col-8 mb-3">
+                                    <label for="exampleFormControlInput4" class="form-label placeholder">Email address</label>
+                                    <input type="email" class="form-control placeholder" id="exampleFormControlInput4" placeholder="{{ profileInfo().email }}"
+                                    disabled readonly>
+                                </div>
+    
                             </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-4 mb-3">
-                                <label for="exampleFormControlInput3" class="form-label">Username</label>
-                                <input type="text" class="form-control" id="exampleFormControlInput3" placeholder="{{ profileInfo().username }}"
-                                disabled readonly>
-                            </div>
-                            <div class="col-8 mb-3">
-                                <label for="exampleFormControlInput4" class="form-label">Email address</label>
-                                <input type="email" class="form-control" id="exampleFormControlInput4" placeholder="{{ profileInfo().email }}"
-                                disabled readonly>
-                            </div>
-
-                        </div>
-
-                        <div class="container mt-2"></div>
-            
-            
-            
-                    </div>  
+    
+                            <div class="container mt-2"></div>
+                
+                
+                
+                        </div>  
+                    </div>
                 </div>
-            </div>
+            }
+            @if ( profileInfo().firstName != '' ) {
+                <div class="container text-start mt-1 p-3 border ">
+                    <div class="row">    
+                        <div class="col align-self-center">
+                            <div class="row">
+                                <div class="col mb-3">
+                                    <label for="exampleFormControlInput1" class="form-label">First Name</label>
+                                    <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="{{ profileInfo().firstName }}"
+                                    disabled readonly>
+                                </div>
+                                <div class="col mb-3">
+                                    <label for="exampleFormControlInput2" class="form-label">Last Name</label>
+                                    <input type="text" class="form-control" id="exampleFormControlInput2" placeholder="{{ profileInfo().lastName }}"
+                                    disabled readonly>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-4 mb-3">
+                                    <label for="exampleFormControlInput3" class="form-label">Username</label>
+                                    <input type="text" class="form-control" id="exampleFormControlInput3" placeholder="{{ profileInfo().username }}"
+                                    disabled readonly>
+                                </div>
+                                <div class="col-8 mb-3">
+                                    <label for="exampleFormControlInput4" class="form-label">Email address</label>
+                                    <input type="email" class="form-control" id="exampleFormControlInput4" placeholder="{{ profileInfo().email }}"
+                                    disabled readonly>
+                                </div>
+                            </div>
+                            <div class="container mt-2"></div>                
+                        </div>  
+                    </div>
+                </div>
+            }
+            
 
         </div>
         

@@ -11,7 +11,22 @@
                 style="max-height: 40rem; overflow-y:scroll; min-width: 500px"
                 >
                     @if (transactions().length < 1 ) {
-                        <li class="list-group-item">Cargando Transacciones...</li>
+                        <li class="list-group-item placeholder-glow">
+                            <span class="col-6 placeholder"></span>
+                        </li>
+                        <li class="list-group-item placeholder-glow">
+                            <span class="col-9 placeholder"></span>
+                        </li>
+                        <li class="list-group-item placeholder-glow">
+                            <span class="col-6 placeholder"></span>
+                        </li>
+                        <li class="list-group-item placeholder-glow">
+                            <span class="col-9 placeholder"></span>
+                        </li>
+                        <li class="list-group-item placeholder-glow">
+                            <span class="col-6 placeholder"></span>
+                        </li>
+                        
                     }
                     
                     @for (transaction of transactions(); track transaction){

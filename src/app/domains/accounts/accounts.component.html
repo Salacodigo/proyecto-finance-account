@@ -1,24 +1,48 @@
 
 <div class="container mt-5 text-center">
     
-
-    <div class="row align-items-center">
-      <div class="col">
-        
-        <div class="card mb-3" 
-          style="max-width: 18rem;min-width: 200px"
-          >
-            <div class="card-header text-bg-dark">
-                <p>Account</p>
-                <span>No : {{ accountNumber() }}</span>
-            </div>
-            <div class="card-body">
-              <h5 class="card-title">Balance</h5>
-              <p><strong>{{ balanceValue() | currency:'$':'symbol':'1.0' }}</strong></p>
-            </div>
+    @if ( balanceValue() === -0.01 ) {
+      <div class="row align-items-center">
+        <div class="col">
+          
+          <div class="card mb-3 placeholder-glow" 
+            style="max-width: 18rem;min-width: 200px"
+            >
+              <div class="card-header text-bg-dark">
+                  <p>Account</p>
+                  <span class="col-6 placeholder">No : {{ accountNumber() }}</span>
+              </div>
+              <div class="card-body">
+                <h5 class="card-title">Balance</h5>
+                <p class="col-6 placeholder "><strong>{{ balanceValue() | currency:'$':'symbol':'1.0' }}</strong></p>
+              </div>
+          </div>
         </div>
       </div>
-    </div>
+
+    }
+
+    @if ( balanceValue() !== -0.01 ) {
+      <div class="row align-items-center">
+        <div class="col">
+          
+          <div class="card mb-3" 
+            style="max-width: 18rem;min-width: 200px"
+            >
+              <div class="card-header text-bg-dark">
+                  <p>Account</p>
+                  <span>No : {{ accountNumber() }}</span>
+              </div>
+              <div class="card-body">
+                <h5 class="card-title">Balance</h5>
+                <p><strong>{{ balanceValue() | currency:'$':'symbol':'1.0' }}</strong></p>
+              </div>
+          </div>
+        </div>
+      </div>
+
+    }
+
 
     <div class="row">
       <div class="accordion accordion-flush text-start" id="accordionFlushExample">
