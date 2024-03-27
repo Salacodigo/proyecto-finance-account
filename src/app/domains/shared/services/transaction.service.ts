@@ -17,7 +17,7 @@ export class TransactionService {
 
   constructor() { }
 
-  async onInit(){
+  async onInit(){    
     await this.getTransactions()
     await this.getBalance()
     await this.getAccountNumber()
@@ -34,8 +34,6 @@ export class TransactionService {
       },
       error: () => {}
     });
-
-    
   }
 
   getBalance(){

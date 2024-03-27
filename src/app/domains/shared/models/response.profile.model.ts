@@ -1,4 +1,4 @@
-export interface Profile {
+export interface ResponseProfile {
     id:        string;
     firstName: string;
     lastName:  string;

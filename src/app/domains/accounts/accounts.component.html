@@ -1,7 +1,7 @@
 
 <div class="container mt-5 text-center">
     
-    @if ( balanceValue() === -0.01 ) {
+    @if ( accountBalanceValue() === -0.01 ) {
       <div class="row align-items-center">
         <div class="col">
           
@@ -10,11 +10,11 @@
             >
               <div class="card-header text-bg-dark">
                   <p>Account</p>
-                  <span class="col-6 placeholder">No : {{ accountNumber() }}</span>
+                  <span class="col-6 placeholder">No : {{ accountBankNumber() }}</span>
               </div>
               <div class="card-body">
                 <h5 class="card-title">Balance</h5>
-                <p class="col-6 placeholder "><strong>{{ balanceValue() | currency:'$':'symbol':'1.0' }}</strong></p>
+                <p class="col-6 placeholder "><strong>{{ accountBalanceValue() | currency:'$':'symbol':'1.0' }}</strong></p>
               </div>
           </div>
         </div>
@@ -22,7 +22,7 @@
 
     }
 
-    @if ( balanceValue() !== -0.01 ) {
+    @if ( accountBalanceValue() !== -0.01 ) {
       <div class="row align-items-center">
         <div class="col">
           
@@ -31,11 +31,11 @@
             >
               <div class="card-header text-bg-dark">
                   <p>Account</p>
-                  <span>No : {{ accountNumber() }}</span>
+                  <span>No : {{ accountBankNumber() }}</span>
               </div>
               <div class="card-body">
                 <h5 class="card-title">Balance</h5>
-                <p><strong>{{ balanceValue() | currency:'$':'symbol':'1.0' }}</strong></p>
+                <p><strong>{{ accountBalanceValue() | currency:'$':'symbol':'1.0' }}</strong></p>
               </div>
           </div>
         </div>
