@@ -20,7 +20,17 @@ export default class ProfileComponent {
   profileInfo = this.profileService.profile;
 
   ngOnInit(){
-    this.profileService.getProfileInformation()
+    this.getProfileInfo();
   }
+
+  getProfileInfo(){
+    this.profileService.getProfileInformation()
+    .subscribe( (info) => {
+
+    this.profileService.profile.set( info )
+    })
+  }
+
+
 
 }

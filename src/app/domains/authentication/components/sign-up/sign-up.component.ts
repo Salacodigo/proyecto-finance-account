@@ -79,7 +79,6 @@ export default class SignUpComponent {
 
 
   submitSignUpForm(){
-    console.log(this.signupForm.value);
     if( !this.confirmPassword() ){ return }
 
     this.signUp()
@@ -107,8 +106,6 @@ export default class SignUpComponent {
     // POST
     this.authenticationService.signUp( data )
     .subscribe( (token) => {
-      console.log({token});
-      
       localStorage.setItem('access-token', token.toString() );
       this.router.navigate(['/transaction-list']);
     })

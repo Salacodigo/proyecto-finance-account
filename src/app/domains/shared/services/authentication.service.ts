@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable, inject, signal } from '@angular/core';
 import { Observable } from 'rxjs';
+import { ResponseLogin } from '../models/response.login.model';
 
 
 interface SignInCredential {
@@ -38,9 +39,9 @@ export class AuthenticationService <T> {
     this.isVisibleLoginForm.set(true);
   }
 
-  signIn( credential : SignInCredential) :  Observable<T[]> {
+  signIn( credential : SignInCredential) :  Observable<ResponseLogin> {
     const url = `${this.API_url}/signin`;
-    return this.http.post<T[]>(url, credential);
+    return this.http.post<ResponseLogin>(url, credential);
   }
 
 

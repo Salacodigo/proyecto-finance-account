@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { RouterLinkActive, RouterLinkWithHref } from '@angular/router';
+import { TokenService } from '../../services/token.service';
 
 
 
@@ -15,5 +16,11 @@ import { RouterLinkActive, RouterLinkWithHref } from '@angular/router';
   styleUrl: './header.component.css'
 })
 export class HeaderComponent {
+
+  tokenService = inject(TokenService)
+
+  logOut(){
+    this.tokenService.removeToken()
+  }
 
 }
