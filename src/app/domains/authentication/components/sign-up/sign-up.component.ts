@@ -80,9 +80,7 @@ export default class SignUpComponent {
 
   submitSignUpForm(){
     if( !this.confirmPassword() ){ return }
-
     this.signUp()
-
   }
 
   confirmPassword(){
