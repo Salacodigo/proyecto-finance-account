@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable, inject, signal } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, lastValueFrom } from 'rxjs';
 import { ResponseLogin } from '../models/response.login.model';
 
 
@@ -48,6 +48,14 @@ export class AuthenticationService <T> {
   signUp( credential : SingUpCredential ) : Observable<T> {
     const url = `${this.API_url}/signup`;
     return this.http.post<T>(url, credential )
+  }
+  
+  async isLoggedIn() {
+    const url = `${this.API_url}/check-signin`;
+
+    const response  = await lastValueFrom(this.http.get(url))
+
+    return response;
   }
 
 
