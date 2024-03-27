@@ -17,8 +17,9 @@ import { FormBuilder, FormControl, FormGroup, FormsModule, ReactiveFormsModule, 
 export default class LoginComponent {
 
   athenticationService = inject(AuthenticationService);
-
+  
   formBuilder = inject(FormBuilder)
+
   
   loginForm! : FormGroup;
 
@@ -26,6 +27,8 @@ export default class LoginComponent {
   passwordControl!: FormControl;
 
   loadingValidation : boolean = false;
+
+
 
   ngOnInit(){
     this.loginReactiveForm()
@@ -41,8 +44,16 @@ export default class LoginComponent {
   }
 
   loginReactiveForm(){
-    this.emailControl = new FormControl('', [Validators.required, Validators.email])
-    this.passwordControl = new FormControl('', [Validators.required])
+
+    this.emailControl = new FormControl('', [
+      Validators.required,
+      Validators.email
+    ])
+    this.passwordControl = new FormControl('', [
+      Validators.required,
+      Validators.minLength(8),
+      Validators.maxLength(64),
+    ])
 
     this.loginForm = this.formBuilder.group({
       email: this.emailControl,
@@ -53,6 +64,7 @@ export default class LoginComponent {
   getLoginFormValues(){
     console.log(this.loginForm.value);
   }
+
   
 
 }

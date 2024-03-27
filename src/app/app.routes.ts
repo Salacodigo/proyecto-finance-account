@@ -33,6 +33,7 @@ export const routes: Routes = [
                 path: 'signup',
                 loadComponent: () => import('./domains/authentication/components/sign-up/sign-up.component')
             },
+            
         ]
     },
     {
