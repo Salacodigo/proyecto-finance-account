@@ -1,6 +1,6 @@
 <div class="container text-start mt-5 p-3 border ">
     <div class="row">
-        <form [formGroup]="loginForm" (ngSubmit)="getLoginFormValues()">
+        <form [formGroup]="loginForm" (ngSubmit)="submitLoginForm()">
             @if ( loadingValidation ) {
                 <div class="error fs-error">Verifying...</div> 
             }

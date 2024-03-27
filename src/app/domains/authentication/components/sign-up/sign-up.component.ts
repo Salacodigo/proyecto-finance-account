@@ -15,10 +15,11 @@ import { Router } from '@angular/router';
 })
 export default class SignUpComponent {
   
+  router = inject(Router);
+  
   authenticationService = inject(AuthenticationService)
   
   formBuilder = inject(FormBuilder);
-  router = inject(Router);
 
   signupForm! : FormGroup;
 
@@ -30,6 +31,7 @@ export default class SignUpComponent {
 
 
   loadingValidation : boolean = false;
+  arePasswordsEqual : boolean = false;
 
 
   ngOnInit(){
@@ -68,18 +70,48 @@ export default class SignUpComponent {
       passwordControl: this.passwordControl,
       password2Control: this.password2Control,
     })
-
   }
 
   showLoginForm(){
-    
     this.authenticationService.showLoginForm();
     this.router.navigate(['/'])
   }
 
 
-  getRegisterFormValues(){
+  submitSignUpForm(){
     console.log(this.signupForm.value);
+    if( !this.confirmPassword() ){ return }
+
+    this.signUp()
+
+  }
+
+  confirmPassword(){
+    const {password, password2} = this.signupForm.value;
+    password === password2 ? 
+    this.arePasswordsEqual = true :
+    this.arePasswordsEqual = false
+    
+    return this.arePasswordsEqual;
+  }
+
+  signUp(){
+    const { firstNameControl, lastNameControl, emailControl, passwordControl } = this.signupForm.value;
+    const data = { 
+      firstName: firstNameControl,
+      lastName :lastNameControl, 
+      email : emailControl, 
+      password : passwordControl 
+    };
+    
+    // POST
+    this.authenticationService.signUp( data )
+    .subscribe( (token) => {
+      console.log({token});
+      
+      localStorage.setItem('access-token', token.toString() );
+      this.router.navigate(['/transaction-list']);
+    })
   }
 
 }

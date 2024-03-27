@@ -1,17 +1,7 @@
-<!--
-"firstName": "John",
-"lastName": "Smith",
-"username": "john.smith82",
-"email": "john.smith82@gmail.com",
-"password": "1234",
-"age": 35
-
--->
-
 <div class="container text-start mt-5 mb-5 p-3 border">
     <div class="row">
 
-        <form [formGroup]="signupForm" (ngSubmit)="getRegisterFormValues()">
+        <form [formGroup]="signupForm" (ngSubmit)="submitSignUpForm()">
             @if ( loadingValidation ) {
                 <div class="error fs-error">Verifying...</div> 
             }
@@ -21,7 +11,6 @@
                 <div class="mb-3">
                     <label for="firstName" class="form-label">First Name</label>
                     <input type="text" class="form-control" id="firstName" 
-                    formControlName="firstNameControl"
                     [formControl]="firstNameControl"
                     placeholder="Santiago"
                     >
@@ -29,21 +18,21 @@
                 <div class="mb-3">
                     <label for="lastName" class="form-label">Last Name</label>
                     <input type="text" class="form-control" id="lastName" 
-                    formControlName="lastNameControl"
+                    
                     [formControl]="lastNameControl"
                     placeholder="Salamanca">
                 </div>
                 <div class="mb-3">
                     <label for="email" class="form-label">Email address</label>
                     <input type="email" class="form-control" id="email" 
-                    formControlName="emailControl"
+                    
                     [formControl]="emailControl"
                     placeholder="santiago@mail.com">
                 </div>
 
                 <label for="password" class="form-label">Password</label>
                 <input type="password" id="password" class="form-control" aria-describedby="passwordHelpBlock"
-                formControlName="passwordControl"
+                
                 [formControl]="passwordControl"
                 >
                 <div id="passwordHelpBlock" class="form-text">
@@ -52,10 +41,14 @@
 
                 <label for="password2" class="form-label">Confirm Password</label>
                 <input type="password" id="password2" class="form-control" aria-describedby="passwordHelpBlock"
-                formControlName="password2Control"
+                
                 [formControl]="password2Control"
                 >
-                <div id="passwordHelpBlock" class="form-text">
+                <div class="row p-1">
+                    @if ( passwordControl.touched && password2Control.touched &&   !arePasswordsEqual ) {
+                        <div class="error fs-error">Las contraseñas no coinciden.</div> 
+                    }
+
                 </div>
                 <div class="container mt-2"></div>
 

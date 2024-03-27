@@ -1,6 +1,7 @@
 import { Component, inject } from '@angular/core';
 import { AuthenticationService } from '../../../shared/services/authentication.service';
 import { FormBuilder, FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 
 
 
@@ -15,11 +16,12 @@ import { FormBuilder, FormControl, FormGroup, FormsModule, ReactiveFormsModule, 
   styleUrl: './login.component.css'
 })
 export default class LoginComponent {
+  
+  router = inject(Router)
 
   athenticationService = inject(AuthenticationService);
   
   formBuilder = inject(FormBuilder)
-
   
   loginForm! : FormGroup;
 
@@ -39,10 +41,7 @@ export default class LoginComponent {
     this.athenticationService.showRegisterForm();
   }
 
-  login(){
-    this.athenticationService.login()
-  }
-
+  
   loginReactiveForm(){
 
     this.emailControl = new FormControl('', [
@@ -54,17 +53,39 @@ export default class LoginComponent {
       Validators.minLength(8),
       Validators.maxLength(64),
     ])
-
+    
     this.loginForm = this.formBuilder.group({
       email: this.emailControl,
       password: this.passwordControl,
     });
   }
-
-  getLoginFormValues(){
-    console.log(this.loginForm.value);
-  }
-
   
+  submitLoginForm(){
+    console.log(this.loginForm.value);
+    this.signIn()
+  }
+  
+  signIn(){  
+    console.log(this.loginForm.value);
+    const { email, password } = this.loginForm.value;
+    
+    const data = { 
+      email : email,
+      password : password,
+    };
+    console.log({data});
+    
+  
+    // POST
+    this.athenticationService.signIn( data )
+    .subscribe( (token) => {
+      console.log({token});
 
+      localStorage.setItem('access-token', token.toString() );
+      this.router.navigate(['/transaction-list']);
+      
+    })
+  }
+  
+  
 }
