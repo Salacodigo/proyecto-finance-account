@@ -31,14 +31,9 @@ export class ProfileService <T> {
   }
 
   getProfileInformation() : Observable<ResponseProfile> {
-    console.log('getProfileInformation');
     const url = `${this.API_url}/users/profile`;
     const accessToken = this.tokenService.getToken()
     
-    return this.http.get<ResponseProfile>(url, {
-      headers: {
-        Authorization: `Bearer ${accessToken}`
-      }
-    })
+    return this.http.get<ResponseProfile>(url)
   }
 }

@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, inject } from '@angular/core';
+import { Component, inject, signal } from '@angular/core';
 import { TransactionService } from '../shared/services/transaction.service';
 
 @Component({
@@ -14,11 +14,22 @@ import { TransactionService } from '../shared/services/transaction.service';
 export default class AccountComponent {
 
   transactionService = inject(TransactionService)
-  balanceValue = this.transactionService.balanceValue;
-  accountNumber = this.transactionService.accountNumber;
+  accountBalanceValue = this.transactionService.balanceValue;
+  accountBankNumber = this.transactionService.accountNumber;
 
-  ngOnInit(){
-    this.transactionService.onInit()
+  constructor() {
+    this.getAccountData()
+  }
+
+  ngOnInit() {
+    this.getAccountData()
+  }
+  
+  getAccountData() {
+    this.transactionService.onInit(); 
+    this.accountBalanceValue.set(this.transactionService.balanceValue())
+    
+    this.accountBankNumber.set( this.transactionService.accountNumber())
   }
 
 }

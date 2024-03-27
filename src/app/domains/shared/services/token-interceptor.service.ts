@@ -15,15 +15,12 @@ export class TokenInterceptor implements HttpInterceptor{
         request: HttpRequest<unknown>, 
         next: HttpHandler
     ) : Observable<HttpEvent<unknown>> {
-        console.log('Interceptor Class');
         return this.addToken(request, next);
     }
         
 
     private addToken(request: HttpRequest<unknown>, next: HttpHandler) {
         const accessToken = this.tokenService.getToken();
-        
-        console.log('Interceptor Token', accessToken);
         
         if (accessToken) {
             const authRequest = request.clone({

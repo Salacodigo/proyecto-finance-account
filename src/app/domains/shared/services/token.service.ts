@@ -13,9 +13,13 @@ export class TokenService{
       }
     
     getToken() {
-    const token = localStorage.getItem('access-token');
-    if( !token ){ return }
-    return JSON.parse(token);
+        try {
+            const token = localStorage.getItem('access-token');
+            if( !token ){ return }
+            return JSON.parse(token);
+        } catch (error) {
+            console.error({error});
+        }
     }
 
     removeToken() {
