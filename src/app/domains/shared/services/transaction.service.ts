@@ -80,8 +80,5 @@ export class TransactionService {
       }
     )
   }
-  
-
-
 
 }
