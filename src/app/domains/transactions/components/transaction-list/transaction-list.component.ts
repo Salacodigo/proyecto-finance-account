@@ -1,9 +1,9 @@
-import { Component, inject, signal } from '@angular/core';
-import AccountComponent from '../../../accounts/accounts.component';
+
+import { Router } from '@angular/router';
 import { TransactionService } from '../../../shared/services/transaction.service';
-import { Transaction } from '../../../shared/models/transaction.model';
+import AccountComponent from '../../../accounts/accounts.component';
 import { TransactionComponent } from '../transaction/transaction.component';
-import { Router } from 'express';
+import { Component, inject } from '@angular/core';
 
 
 @Component({
@@ -36,6 +36,7 @@ export default class TransactionListComponent {
   }
 
   goToCreateTransaction(){
+    this.router.navigate(['/dashboard'])
     this.router.navigate(['/create-transaction'])
   }
 

@@ -31,7 +31,7 @@ export const routes: Routes = [
             },
             {
                 path: 'create-transaction',
-                // canActivate: [authGuard],
+                canActivate: [authGuard],
                 loadComponent: () => import('./domains/transactions/components/create-transaction/create-transaction.component')
             },
             {

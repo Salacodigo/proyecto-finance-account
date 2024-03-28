@@ -8,13 +8,20 @@
 
         <div class="col-8">
             <h2>Transaction movements</h2>
-            <div class="row">
-                <div class="col-10">
+            <div class="row mb-3">
+                <div class="col-1"></div>
+                <div class="col-5">
                     <div>
-                        <button (click)="goToCreateTransaction()">Create Transaction</button>
+                        <button (click)="goToCreateTransaction()"
+                        class="btn btn-dark"
+                        >
+                        <small>
+                            Create Transaction
+                        </small>
+                        </button>
                     </div>
                 </div>
-                <div class="col-2">
+                <div class="col-6">
                     <div>
                         <svg className="w-[24px] h-[24px] text-gray-800 dark:text-white" aria-hidden="true"
                         xmlns="http://www.w3.org/2000/svg" width="34" height="24" fill="none" viewBox="0 0 24 24">
@@ -27,7 +34,7 @@
             </div>
             
             
-            <div class="container mb-5  overflow-y-scroll">
+            <div class="container mb-5 border overflow-y-scroll">
                 
                 <ul class="list-group list-group-flush p-3"
                 style="max-height: 40rem; overflow-y:scroll; min-width: 500px"
