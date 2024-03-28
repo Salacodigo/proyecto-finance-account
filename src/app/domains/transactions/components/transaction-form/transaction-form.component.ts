@@ -117,7 +117,6 @@ export class TransactionFormComponent {
 
   submitCreateTransactionForm(){
     this.createTransaction()
-    console.log(this.createTransactionForm.getRawValue());
   }
 
   createTransaction(){
@@ -141,12 +140,9 @@ export class TransactionFormComponent {
     }
     
     // POST
-    console.log({ data });
-    
     this.transactionService.createTransaction( data )
     .subscribe( (response) => {
       console.log({response});
-      
     })
     
     
