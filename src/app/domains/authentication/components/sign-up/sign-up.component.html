@@ -54,7 +54,7 @@
 
 
                 <div class="vstack gap-2 col-md-5 mx-auto">
-                    <button type="submit" class="btn btn-primary"
+                    <button type="submit" class="btn btn-dark"
                         [disabled]="signupForm.invalid || loadingValidation"
                     >Register</button>
                 </div>
@@ -63,7 +63,9 @@
         <div class="container mt-3">
 
             <div class="vstack gap-2 col-md-5 mx-auto">
-                <button type="button" class="btn btn-primary" (click)="showLoginForm()">Return to Login</button>
+                <button type="button" class="btn btn-dark" (click)="showLoginForm()">
+                    <small>Return to Login</small>
+                </button>
             </div>
         </div>
     </div>

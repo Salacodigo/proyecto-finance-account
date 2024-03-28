@@ -1,0 +1,109 @@
+<div class="container text-start mt-5 mb-5 p-3 border">
+    <div class="row">
+
+        <form [formGroup]="createTransactionForm" (ngSubmit)="submitCreateTransactionForm()">
+            @if ( loadingValidation ) {
+                <div class="error fs-error">Verifying...</div> 
+            }
+        
+            <div class="col align-self-center">
+                <div class="row mb-3">
+                    <div class="col-4">
+                        <small for="date" class="form-label">Available:{{ accountBalanceValue() | currency:'$':'symbol':'1.0' }}</small>
+                    </div>
+                    <div class="col-2"></div>
+                    <div class="col-6">
+                        <small for="date" class="form-label">{{ currentDate | date:"MMM dd, yyyy 'at' hh:mm a" }}</small>
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <div class="col-7">
+                        <label for="source" class="form-label">Source</label>
+                        <input type="text" class="form-control" id="source" 
+                        [formControl]="sourceControl"
+                        placeholder="Source Account"
+                        >
+                    </div>
+                    <div class="col-5">
+                        <label for="type" class="form-label">Type</label>
+                        <input type="text" class="form-control" id="type" 
+                        [formControl]="typeControl"
+                        placeholder="type of transaction"
+                        >
+                    </div>
+                </div>
+
+                <div class="row mb-3">
+                    <div class="col-7">
+                        <label for="destination" class="form-label">Destination Account</label>
+                        <input id="destination" 
+                        type="tel" class="form-control"
+                        inputmode="numeric" pattern="[0-9\s]{13,19}" 
+                        autocomplete="destination-account-number" maxlength="14"
+                        placeholder="xxxx xx xxx xx" 
+                        [formControl]="destinationControl"
+                        required>
+                    </div>
+                    <div class="col-5">
+                        <label for="amount" class="form-label">Amount</label>
+                        <div class="input-group">
+                            <span class="input-group-text">$</span>
+                            <input type="tel" class="form-control" aria-label="Amount (to the nearest dollar)"
+                            id="amount"
+                            [formControl]="amountControl"
+                            placeholder="150"
+                            value="7856"
+                            >
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="row mb-3">
+    
+                    <div class="col-8">
+                        <label for="category" class="form-label">Category</label>
+                        <div class="input-group">
+                            <label class="input-group-text" for="category">Category</label>
+                            <select 
+                            class="form-select" 
+                            id="category"
+                            [formControl]="categoryControl"
+                            >
+                              <option value="Transfer" selected>Transfer</option>
+                              <option value="Expenses">Expenses</option>
+                              <option value="Housing">Housing</option>
+                              <option value="Shopping">Shopping</option>
+                              <option value="Groceries">Groceries</option>
+                              <option value="Restaurant">Restaurant</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mb-3">
+                    <label for="description" class="form-label">Description</label>
+                    <input type="text" class="form-control" id="description" 
+                    [formControl]="descriptionControl"
+                    placeholder="Travel expenses with taxis and bad girls"
+                    value=""
+                ></div>
+
+                <div class="vstack gap-2 col-9 mx-auto">
+                    <button type="submit" class="btn btn-dark"
+                        
+                    >Create</button>
+                </div>
+            </div>  
+        </form>
+        <div class="container mt-3">
+
+            <div class="vstack gap-2 col-6 mx-auto">
+                <button type="button" class="btn btn-dark" (click)="showTransactionList()">
+                    <small>
+                        Return to Transaction List
+                    </small>
+                </button>
+            </div>
+        </div>
+    </div>
+</div>

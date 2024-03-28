@@ -1,7 +1,7 @@
 import { Routes } from '@angular/router';
 import { LayoutComponent } from './domains/shared/components/layout/layout.component';
 import { authGuard } from './domains/shared/guards/auth.guard';
-
+import CreateTransactionComponent from './domains/transactions/components/create-transaction/create-transaction.component';
 
 
 
@@ -30,23 +30,18 @@ export const routes: Routes = [
                 loadComponent: () => import('./domains/transactions/components/transaction-list/transaction-list.component')
             },
             {
+                path: 'create-transaction',
+                canActivate: [authGuard],
+                loadComponent: () => import('./domains/transactions/components/create-transaction/create-transaction.component')
+            },
+            {
                 path: '**',
                 loadComponent: () => import('./domains/home/home.component')
             }
-            // {
-            //     path: 'signin',
-            //     loadComponent: () => import('./domains/authentication/components/login/login.component')
-            // },
-            // {
-            //     path: 'signup',
-            //     loadComponent: () => import('./domains/authentication/components/sign-up/sign-up.component')
-            // },
-            
         ]
     },
     {
         path: '**',
         component: LayoutComponent
     }
-    
 ];

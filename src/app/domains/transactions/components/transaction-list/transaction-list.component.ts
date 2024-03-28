@@ -1,8 +1,10 @@
-import { Component, inject, signal } from '@angular/core';
-import AccountComponent from '../../../accounts/accounts.component';
+
+import { Router } from '@angular/router';
 import { TransactionService } from '../../../shared/services/transaction.service';
-import { Transaction } from '../../../shared/models/transaction.model';
+import AccountComponent from '../../../accounts/accounts.component';
 import { TransactionComponent } from '../transaction/transaction.component';
+import { Component, inject } from '@angular/core';
+
 
 @Component({
   selector: 'app-transaction-list',
@@ -15,6 +17,8 @@ import { TransactionComponent } from '../transaction/transaction.component';
   styleUrl: './transaction-list.component.css'
 })
 export default class TransactionListComponent {
+
+  router = inject(Router)
 
   transactionService = inject(TransactionService)
 
@@ -29,6 +33,11 @@ export default class TransactionListComponent {
   
   getTransactions(){
     this.transactionService.onInit()
+  }
+
+  goToCreateTransaction(){
+    this.router.navigate(['/dashboard'])
+    this.router.navigate(['/create-transaction'])
   }
 
 }
